@@ -1,5 +1,5 @@
 
-##Requisitos
+## Requisitos
 Certifique-se de ter os seguintes requisitos instalados antes de começar:
 
 - PHP: ^v8.1.7
@@ -7,11 +7,12 @@ Certifique-se de ter os seguintes requisitos instalados antes de começar:
 - Nodejs: ^v9.0
 - Laravel: v10
 
-##Inicialização do Projeto
+## Inicialização do Projeto
 
-#Clone o repositório:
-bash
-Copy code: git clone https://github.com/weliton1996/teste_universidade_patativa.git
+## Clone o repositório:
+```
+git clone https://github.com/weliton1996/teste_universidade_patativa.git
+```
 cd seu-projeto
 ## 1 - Inicialize o Composer:
 ```
