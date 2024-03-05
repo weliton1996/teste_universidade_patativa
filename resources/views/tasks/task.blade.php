@@ -28,7 +28,7 @@
                 
                         <div>
                             <x-input-label  :value="__('Nome')"/>
-                            <x-text-input  name="name" type="text" class="mt-1 block w-full" placeholder="digite o nome da tarefa" />
+                            <x-text-input  name="name" type="text" class="mt-1 block w-full" placeholder="digite o nome da tarefa"  />
                             <x-input-error :messages="$errors->first('name')" class="mt-2" />
                         </div>
     

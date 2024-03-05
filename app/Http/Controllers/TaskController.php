@@ -37,7 +37,26 @@ class TaskController extends Controller
 
     public function create(Request $request)
     {
+        $request->validate(
+            [
+                'name' => 'required|string|between:3,30',
+                'detals' => 'required|max:300',
+                'category' => 'required',
+                'user_id' => 'required',
+            ],
+            [
+                'name.required' => 'O campo nome é obrigatório.',
+                'name.string' => 'O campo nome deve ser uma string.',
+                'name.between' => 'O campo nome deve ter entre :min e :max caracteres.',
 
+                'detals.required' => 'O campo detalhes é obrigatório.',
+                'detals.max' => 'O campo detalhes não pode ter mais de :max caracteres.',
+
+                'category.required' => 'O campo categoria é obrigatório.',
+
+                'user_id.required' => 'O campo ID do usuário é obrigatório.',
+            ]
+        );
 
         $categoryName = $request->input('category');
 
@@ -61,27 +80,7 @@ class TaskController extends Controller
             $category_id = $existingCategory->id;
         }
 
-        $request->validate(
-            [
-                'name' => 'required|string|between:3,30',
-                'detals' => 'required|max:300',
-                'category' => 'required',
-                'user_id' => 'required',
-            ],
-            [
-                'name.required' => 'O campo nome é obrigatório.',
-                'name.string' => 'O campo nome deve ser uma string.',
-                'name.between' => 'O campo nome deve ter entre :min e :max caracteres.',
-
-                'detals.required' => 'O campo detalhes é obrigatório.',
-                'detals.max' => 'O campo detalhes não pode ter mais de :max caracteres.',
-
-                'category.required' => 'O campo categoria é obrigatório.',
-
-                'user_id.required' => 'O campo ID do usuário é obrigatório.',
-            ]
-        );
-
+        
         $task = [
             'name' => $request->input('name'),
             'detals' => $request->input('detals'),
@@ -117,6 +116,27 @@ class TaskController extends Controller
 
     public function update(Request $request)
     {
+
+        $request->validate(
+            [
+                'name' => 'required|string|between:3,30',
+                'detals' => 'required|max:300',
+                'category' => 'required',
+                'user_id' => 'required',
+            ],
+            [
+                'name.required' => 'O campo nome é obrigatório.',
+                'name.string' => 'O campo nome deve ser uma string.',
+                'name.between' => 'O campo nome deve ter entre :min e :max caracteres.',
+
+                'detals.required' => 'O campo detalhes é obrigatório.',
+                'detals.max' => 'O campo detalhes não pode ter mais de :max caracteres.',
+
+                'category.required' => 'O campo categoria é obrigatório.',
+
+                'user_id.required' => 'O campo ID do usuário é obrigatório.',
+            ]
+        );
         // Descriptografar o ID
         $task_id= $request->input('task_id');
 
@@ -144,26 +164,7 @@ class TaskController extends Controller
             $category_id = $existingCategory->id;
         }
 
-        $request->validate(
-            [
-                'name' => 'required|string|between:3,30',
-                'detals' => 'required|max:300',
-                'category' => 'required',
-                'user_id' => 'required',
-            ],
-            [
-                'name.required' => 'O campo nome é obrigatório.',
-                'name.string' => 'O campo nome deve ser uma string.',
-                'name.between' => 'O campo nome deve ter entre :min e :max caracteres.',
-
-                'detals.required' => 'O campo detalhes é obrigatório.',
-                'detals.max' => 'O campo detalhes não pode ter mais de :max caracteres.',
-
-                'category.required' => 'O campo categoria é obrigatório.',
-
-                'user_id.required' => 'O campo ID do usuário é obrigatório.',
-            ]
-        );
+        
 
         $task = [
             'name' => $request->input('name'),

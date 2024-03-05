@@ -25,7 +25,7 @@
                         @method('put')
 
                         <input type="hidden" name="user_id" value="{{ auth()->id() }}">
-                        <input type="hidden" name="task_id" value="{{ old('name', $tasksWithCategoryName->id) }}"> 
+                        <input type="hidden" name="task_id" value="{{ old('task_id', $tasksWithCategoryName->id) }}"> 
                 
                         <div>
                             <x-input-label :value="__('Nome')"/>
@@ -35,13 +35,13 @@
     
                         <div>
                             <x-input-label :value="__('Detalhes')"/>
-                            <x-text-input  name="detals" type="text" class="mt-1 block w-full" placeholder="O que é a task?" :value="old('name', $tasksWithCategoryName->detals)"/>
+                            <x-text-input  name="detals" type="text" class="mt-1 block w-full" placeholder="O que é a task?" :value="old('detals', $tasksWithCategoryName->detals)"/>
                             <x-input-error :messages="$errors->first('detals')" class="mt-2" />
                         </div>
     
                         <div>
                             <x-input-label :value="__('Categoria')"/>
-                            <x-text-input  name="category" type="text" class="mt-1 block w-full" placeholder="Ex.: Compras" :value="old('name', $tasksWithCategoryName->category_name)"/>
+                            <x-text-input  name="category" type="text" class="mt-1 block w-full" placeholder="Ex.: Compras" :value="old('category', $tasksWithCategoryName->category_name)"/>
                             <x-input-error :messages="$errors->first('category')" class="mt-2" />
                         </div>
                 
