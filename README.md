@@ -15,13 +15,14 @@ use o arquivo .env.exemple para cria o seu .env:
 
 - .env
 
+```
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
 DB_DATABASE=(NOME DO SEU DB)
 DB_USERNAME=(USUÁRIO)
 DB_PASSWORD=(E SENHA, SE TIVER)
-
+```
 
 - config/database.php
 ```
