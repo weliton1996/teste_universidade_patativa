@@ -7,7 +7,7 @@ Certifique-se de ter os seguintes requisitos instalados antes de começar:
 - Nodejs: ^v9.0
 - Laravel: v10
 
-## Inicialização do Projeto
+# Antes de Iniciar o Projeto
 - Configure o arquivo .env + config/database.php
 
 ## Inicialização do Projeto
