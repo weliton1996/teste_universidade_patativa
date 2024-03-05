@@ -8,6 +8,9 @@ Certifique-se de ter os seguintes requisitos instalados antes de começar:
 - Laravel: v10
 
 ## Inicialização do Projeto
+- Configure o arquivo .env + config/database.php
+
+## Inicialização do Projeto
 
 ## Clone o repositório:
 ```
