@@ -27,6 +27,10 @@ Route::get('/', function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/tasks', [TaskController::class, 'index'])->name('mytasks');
+    Route::get('/tasks/new', [TaskController::class, 'new'])->name('mytasks.new');
+    Route::post('/tasks/create', [TaskController::class, 'create'])->name('mytasks.create');
+    Route::get('/tasks/{id}/edit', [TaskController::class, 'edit'])->name('mytasks.edit');
+    Route::put('/tasks/update', [TaskController::class, 'update'])->name('mytasks.update');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
