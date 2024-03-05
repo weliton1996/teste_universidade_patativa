@@ -180,4 +180,16 @@ class TaskController extends Controller
 
         return redirect()->route('mytasks');
     }
+
+    public function delete( Request $request){
+
+        $id = decrypt($request->input('task_id'));
+
+        $task= Task::find($id);
+    //    dd($task);
+        $task->delete();
+
+        return redirect()->route('mytasks');
+        
+    }
 }

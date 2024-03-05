@@ -8,14 +8,16 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="grid grid-cols-[auto,1fr] items-center justify-center ">
-                <div class="p-1 bg-white dark:bg-gray-700 rounded-md m-1 mx-auto">
-                    <a href="{{ route('mytasks.new') }}" class="text-gray-200 hover:text-gray-50">Criar uma tarefa</a>
+                <div class="p-1 rounded-md m-1 mx-auto">                  
+                    <x-new-button><a href="{{ route('mytasks.new') }}" class="text-gray-200 hover:text-gray-50">{{ __('Criar uma tarefa') }}</a></x-ne-button>
                 </div>
             </div>
 
             <div class="bg-white dark:bg-gray-800 shadow-sm sm:rounded-lg p-2">
                 <div class="p-5 text-gray-900 dark:text-gray-100">
-                    <table class="w-full border-collapse table-">
+                    @if ($tasksWithCategoryName->isNotEmpty())
+                       
+                    <table class="w-full border-collapse ">
                         <thead>
                             <tr class="border-b border-slate-700 items-start">
                                 <th class="text-left">Nome</th>
@@ -53,20 +55,25 @@
                                         </x-dropdown>
                                     </td>
                                     <td class="py-2  text-gray-500 dark:text-gray-400">{{ $task->category_name }}</td>
-                                    <td class="py-2">
-                                                                 
-                                       <span><a href="{{ route('mytasks.edit', ['id' => encrypt($task->id)]) }}">Editar</a></span>
-                       
+                                    <td class="py-2 text-right">
+                                        <span><a href="{{ route('mytasks.edit', ['id' => encrypt($task->id)]) }}">Editar</a></span>
                                     </td>
-                                    <td class="py-2">
-                                        <span>Delete</span>                         
+                                    <td class="py-2 text-right">
+                                        <div >
+                                            @include('tasks.partials.delete-task')
+                                        </div>
                                     </td>
 
-                                    
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
+                    @else
+                        <div class="text-center text-gray-500 dark:text-gray-400">
+                            <span><p>Sem tarefas por aqui? Personalize sua lista adicionando novas tarefas com um simples clique no botão acima.</p></span>
+                        </div>
+                    @endif
+                    
                 </div>
 
 
